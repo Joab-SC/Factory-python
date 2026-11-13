@@ -9,8 +9,10 @@ Requiere Python 3.10 o superior. No usa dependencias externas.
 
 | Archivo | Rol en el patrón |
 |---|---|
-| `logistica/transporte.py` | Producto `Transporte` y productos concretos `Camion`, `Barco`, `Avion` |
-| `logistica/creadores.py` | Creadora `Logistica` y creadores concretos `LogisticaTerrestre`, `LogisticaMaritima`, `LogisticaAerea` |
+| `logistica/transporte.py` | Producto: interfaz abstracta `Transporte` |
+| `logistica/transportes_concretos.py` | Productos concretos: `Camion`, `Barco`, `Avion` |
+| `logistica/logistica.py` | Creadora: clase abstracta `Logistica` (`crear_transporte()`, `planificar_entrega()`) |
+| `logistica/logisticas_concretas.py` | Creadores concretos: `LogisticaTerrestre`, `LogisticaMaritima`, `LogisticaAerea` |
 | `main.py` | Cliente: elige el creador según la configuración |
 | `tests/test_logistica.py` | Pruebas con `unittest` |
 | `alternativa_if_elif.py` | Versión sin el patrón, para comparar |
@@ -42,11 +44,12 @@ python alternativa_if_elif.py --modo maritima
 
 | Archivo | Cambio |
 |---|---|
-| `logistica/transporte.py` | Se agregó la clase `Avion` |
-| `logistica/creadores.py` | Se agregó la clase `LogisticaAerea` |
+| `logistica/transportes_concretos.py` | Se agregó la clase `Avion` |
+| `logistica/logisticas_concretas.py` | Se agregó la clase `LogisticaAerea` |
 | `main.py` | Se agregó el import de `LogisticaAerea` y la entrada `"aerea"` en `CREADORES` |
 
-Solo se agregaron clases nuevas: no se modificaron `Transporte`, `Camion`, `Barco` ni `Logistica`.
+Solo se agregaron clases nuevas: `transporte.py` y `logistica.py` no cambiaron, y tampoco
+las clases `Camion` ni `Barco`.
 
 ## Reutilización de objetos (Actividad 3.6)
 

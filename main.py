@@ -2,8 +2,8 @@
 
 import argparse
 
-from logistica.creadores import (
-    Logistica,
+from logistica.logistica import Logistica
+from logistica.logisticas_concretas import (
     LogisticaAerea,
     LogisticaMaritima,
     LogisticaTerrestre,
