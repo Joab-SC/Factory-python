@@ -4,10 +4,13 @@ import io
 import unittest
 from contextlib import redirect_stdout
 
-from logistica.aerea import Avion, LogisticaAerea
-from logistica.creadores import Logistica
-from logistica.terrestre_maritima import LogisticaMaritima, LogisticaTerrestre
-from logistica.transporte import Barco, Camion, Transporte
+from logistica.creadores import (
+    Logistica,
+    LogisticaAerea,
+    LogisticaMaritima,
+    LogisticaTerrestre,
+)
+from logistica.transporte import Avion, Barco, Camion, Transporte
 
 
 class TestLogistica(unittest.TestCase):

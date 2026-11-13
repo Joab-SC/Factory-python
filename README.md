@@ -9,10 +9,8 @@ Requiere Python 3.10 o superior. No usa dependencias externas.
 
 | Archivo | Rol en el patrón |
 |---|---|
-| `logistica/transporte.py` | Producto `Transporte` y productos concretos `Camion`, `Barco` |
-| `logistica/creadores.py` | Creadora `Logistica` (`crear_transporte()`, `planificar_entrega()`) |
-| `logistica/terrestre_maritima.py` | Creadores concretos `LogisticaTerrestre`, `LogisticaMaritima` |
-| `logistica/aerea.py` | Extensión: `Avion` y `LogisticaAerea` |
+| `logistica/transporte.py` | Producto `Transporte` y productos concretos `Camion`, `Barco`, `Avion` |
+| `logistica/creadores.py` | Creadora `Logistica` y creadores concretos `LogisticaTerrestre`, `LogisticaMaritima`, `LogisticaAerea` |
 | `main.py` | Cliente: elige el creador según la configuración |
 | `tests/test_logistica.py` | Pruebas con `unittest` |
 | `alternativa_if_elif.py` | Versión sin el patrón, para comparar |
@@ -44,10 +42,11 @@ python alternativa_if_elif.py --modo maritima
 
 | Archivo | Cambio |
 |---|---|
-| `logistica/aerea.py` | **Nuevo**: clases `Avion` y `LogisticaAerea` |
+| `logistica/transporte.py` | Se agregó la clase `Avion` |
+| `logistica/creadores.py` | Se agregó la clase `LogisticaAerea` |
 | `main.py` | Se agregó el import de `LogisticaAerea` y la entrada `"aerea"` en `CREADORES` |
 
-No se modificaron `Transporte`, `Camion`, `Barco` ni `Logistica`.
+Solo se agregaron clases nuevas: no se modificaron `Transporte`, `Camion`, `Barco` ni `Logistica`.
 
 ## Reutilización de objetos (Actividad 3.6)
 
@@ -60,7 +59,7 @@ que se obtiene la misma instancia.
 | Criterio | if/elif en el cliente | Factory Method |
 |---|---|---|
 | Acoplamiento | Alto: el cliente conoce y crea cada clase concreta | Bajo: el cliente y `Logistica` solo conocen las interfaces |
-| Agregar `Avion` | Modificar el `if/elif`, los `choices` y la función del cliente | Crear un archivo nuevo y registrar una línea en la configuración |
+| Agregar `Avion` | Modificar el `if/elif`, los `choices` y la función del cliente | Agregar dos clases nuevas y registrar una línea en la configuración |
 | Cantidad de clases | 2 (una por transporte) | 6 con terrestre y marítimo (interfaz, creadora, 2 productos, 2 creadores); `Avion` suma 2 más |
 
 La versión con `if/elif` es más corta, pero cada nuevo transporte obliga a modificar código que

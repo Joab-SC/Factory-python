@@ -2,9 +2,12 @@
 
 import argparse
 
-from logistica.aerea import LogisticaAerea
-from logistica.creadores import Logistica
-from logistica.terrestre_maritima import LogisticaMaritima, LogisticaTerrestre
+from logistica.creadores import (
+    Logistica,
+    LogisticaAerea,
+    LogisticaMaritima,
+    LogisticaTerrestre,
+)
 
 CREADORES: dict[str, type[Logistica]] = {
     "terrestre": LogisticaTerrestre,

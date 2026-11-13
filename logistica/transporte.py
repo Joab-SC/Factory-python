@@ -27,3 +27,12 @@ class Barco(Transporte):
         mensaje = f"Barco: entregando por mar a {destino}"
         print(mensaje)
         return mensaje
+
+
+class Avion(Transporte):
+    """Producto concreto: entrega por aire."""
+
+    def entrega(self, destino: str) -> str:
+        mensaje = f"Avión: entregando por aire a {destino}"
+        print(mensaje)
+        return mensaje
