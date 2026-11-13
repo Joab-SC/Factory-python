@@ -12,7 +12,12 @@ class LogisticaTerrestre(Logistica):
 
 
 class LogisticaMaritima(Logistica):
-    """Creador concreto: produce barcos."""
+    """Creador concreto: produce barcos y reutiliza el ya creado (caché)."""
+
+    def __init__(self) -> None:
+        self._barco: Transporte | None = None
 
     def crear_transporte(self) -> Transporte:
-        return Barco()
+        if self._barco is None:
+            self._barco = Barco()
+        return self._barco
